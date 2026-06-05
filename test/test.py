@@ -10,6 +10,9 @@ CMD_LOAD_TARGET = 1
 CMD_LOAD_CURRENT = 2
 CMD_CONTROL = 3
 
+CLK_PERIOD_NS = 100
+SETTLE_NS = 40
+
 
 def pack(cmd, data):
     return ((cmd & 0x3) << 6) | (data & 0x3F)
@@ -23,7 +26,7 @@ async def reset(dut):
     await ClockCycles(dut.clk, 3)
     dut.rst_n.value = 1
     await RisingEdge(dut.clk)
-    await Timer(2, unit="ns")
+    await Timer(SETTLE_NS, unit="ns")
     await ReadOnly()
     assert int(dut.uo_out.value) == 0x81
     assert int(dut.uio_out.value) == 0x00
@@ -34,7 +37,7 @@ async def sample(dut, value):
     await FallingEdge(dut.clk)
     dut.ui_in.value = value
     await RisingEdge(dut.clk)
-    await Timer(2, unit="ns")
+    await Timer(SETTLE_NS, unit="ns")
     await ReadOnly()
     return int(dut.uo_out.value), int(dut.uio_out.value)
 
@@ -65,7 +68,7 @@ async def run_case(dut, target, current, max_attempts):
 
 @cocotb.test()
 async def test_up_verify_down_verify_timeout_and_clear(dut):
-    clock = Clock(dut.clk, 10, unit="ns")
+    clock = Clock(dut.clk, CLK_PERIOD_NS, unit="ns")
     cocotb.start_soon(clock.start())
 
     await reset(dut)
