@@ -1,4 +1,4 @@
-﻿## How it works
+## How it works
 
 This project is a small digital companion tile for a future local memristive AI chip. It does not implement real memristors. Instead, it implements the digital control contract around a symbolic memristive update:
 
