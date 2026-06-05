@@ -2,7 +2,7 @@
 
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import ClockCycles, FallingEdge, ReadOnly, RisingEdge
+from cocotb.triggers import ClockCycles, FallingEdge, ReadOnly, RisingEdge, Timer
 
 
 CMD_NOP = 0
@@ -23,6 +23,7 @@ async def reset(dut):
     await ClockCycles(dut.clk, 3)
     dut.rst_n.value = 1
     await RisingEdge(dut.clk)
+    await Timer(2, unit="ns")
     await ReadOnly()
     assert int(dut.uo_out.value) == 0x81
     assert int(dut.uio_out.value) == 0x00
@@ -33,6 +34,7 @@ async def sample(dut, value):
     await FallingEdge(dut.clk)
     dut.ui_in.value = value
     await RisingEdge(dut.clk)
+    await Timer(2, unit="ns")
     await ReadOnly()
     return int(dut.uo_out.value), int(dut.uio_out.value)
 
