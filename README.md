@@ -103,10 +103,10 @@ Historical pre-revision Picasso evidence:
 
 ## Run tests
 
-This package now includes Tiny Tapeout SKY26c workflow files under `.github/workflows/`:
+This package now includes Tiny Tapeout GF26a workflow files under `.github/workflows/`:
 
-- `docs.yaml`: uses `TinyTapeout/tt-gds-action/docs@ttsky26c`.
-- `gds.yaml`: uses `TinyTapeout/tt-gds-action@ttsky26c`, precheck, gate-level test and viewer jobs.
+- `docs.yaml`: uses `TinyTapeout/tt-gds-action/docs@ttgf26a`.
+- `gds.yaml`: uses `TinyTapeout/tt-gds-action@ttgf26a`, precheck, gate-level test and viewer jobs.
 
 To run the hosted Actions, push this directory as the root of a GitHub repository created from or compatible with the official Tiny Tapeout Verilog template, then enable GitHub Pages from Actions.
 

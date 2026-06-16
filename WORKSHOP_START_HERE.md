@@ -73,10 +73,10 @@ El fallo anterior de Verilator ocurria cuando no se cargaba ese entorno y el nod
 
 ## Como usar GitHub Actions oficiales
 
-Este repo incluye Actions para SKY26c / `sky130A`:
+Este repo incluye Actions para GF26a / `gf180mcuD`:
 
-- `docs`: `TinyTapeout/tt-gds-action/docs@ttsky26c`
-- `gds`: `TinyTapeout/tt-gds-action@ttsky26c`
+- `docs`: `TinyTapeout/tt-gds-action/docs@ttgf26a`
+- `gds`: `TinyTapeout/tt-gds-action@ttgf26a`
 
 Para ejecutarlas:
 
@@ -90,7 +90,7 @@ Para ejecutarlas:
 
 1. Abrir este repo.
 2. Mostrar `src/project.v`, `info.yaml` y `docs/workshop_brief.md`.
-3. Preguntar a Matt si `ttsky-verilog-template` y `ttsky26c` son la plantilla/action correctas para el evento; si el deadline es GF de junio, migrar a la plantilla/action GF.
+3. Preguntar a Matt si `ttgf-verilog-template` y `ttgf26a` son la plantilla/action correctas para el evento.
 4. Confirmar si `uio_oe = 8'hff` es aceptable para usar todos los `uio` como salidas.
 5. Subir este repo a GitHub o copiarlo en el repo que se cree durante el workshop.
 6. Correr las Actions `docs` y `gds`.
