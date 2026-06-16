@@ -1,0 +1,231 @@
+{
+  "python_smoke": {
+    "passed": true,
+    "up_verify": {
+      "target": 5,
+      "initial_current": 2,
+      "max_attempts": 4,
+      "trace": [
+        {
+          "cmd": 1,
+          "data": 5,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 2,
+          "data": 2,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 3,
+          "data": 17,
+          "uo": 65,
+          "uio": 1,
+          "attempt": 0,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 17,
+          "attempt": 1,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 33,
+          "attempt": 2,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 49,
+          "attempt": 3,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 163,
+          "uio": 50,
+          "attempt": 3,
+          "state": 2
+        }
+      ],
+      "terminal": {
+        "cmd": 0,
+        "data": 0,
+        "uo": 163,
+        "uio": 50,
+        "attempt": 3,
+        "state": 2
+      },
+      "passed": true
+    },
+    "down_verify": {
+      "target": 1,
+      "initial_current": 5,
+      "max_attempts": 4,
+      "trace": [
+        {
+          "cmd": 1,
+          "data": 1,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 2,
+          "data": 5,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 3,
+          "data": 17,
+          "uo": 65,
+          "uio": 1,
+          "attempt": 0,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 17,
+          "attempt": 1,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 33,
+          "attempt": 2,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 49,
+          "attempt": 3,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 65,
+          "attempt": 4,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 163,
+          "uio": 66,
+          "attempt": 4,
+          "state": 2
+        }
+      ],
+      "terminal": {
+        "cmd": 0,
+        "data": 0,
+        "uo": 163,
+        "uio": 66,
+        "attempt": 4,
+        "state": 2
+      },
+      "passed": true
+    },
+    "timeout_fault": {
+      "target": 8,
+      "initial_current": 0,
+      "max_attempts": 3,
+      "trace": [
+        {
+          "cmd": 1,
+          "data": 8,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 2,
+          "data": 0,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 3,
+          "data": 13,
+          "uo": 65,
+          "uio": 1,
+          "attempt": 0,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 17,
+          "attempt": 1,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 33,
+          "attempt": 2,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 49,
+          "attempt": 3,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 176,
+          "uio": 51,
+          "attempt": 3,
+          "state": 3
+        }
+      ],
+      "terminal": {
+        "cmd": 0,
+        "data": 0,
+        "uo": 176,
+        "uio": 51,
+        "attempt": 3,
+        "state": 3
+      },
+      "passed": true
+    },
+    "load_public_state_constant": true,
+    "raw_payload_outputs": 0
+  }
+}

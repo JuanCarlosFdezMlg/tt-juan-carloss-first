@@ -7,6 +7,7 @@ This project is a small digital companion tile for a future local memristive AI 
 3. Start a bounded write-verify loop with `START`.
 4. Emit one-cycle `pulse_up` or `pulse_down` events while moving the symbolic current toward the target.
 5. Finish with `verify_ok` when the target is reached, or `fault` when the attempt budget is exhausted.
+6. `CLEAR` aborts and clears public state even if the FSM is currently busy.
 
 The public output contract exposes status, pulse events, verification status, a fault bit, an attempt counter and an FSM state code. It does not expose the loaded target/current values directly on the public outputs in the tested scenarios.
 
@@ -17,7 +18,7 @@ Reset the design, then drive the command/data input bus:
 - `01vvvvvv`: load target.
 - `10vvvvvv`: load current.
 - `11mmmm01`: start with max attempt count `m`.
-- `11xxxx10`: clear public state.
+- `11xxxx10`: clear public state, including while busy.
 
 Expected smoke tests:
 
@@ -25,9 +26,9 @@ Expected smoke tests:
 - Target 1, current 5, max attempts 4: emits `pulse_down` events and finishes with `verify_ok`.
 - Target 8, current 0, max attempts 3: emits `fault` after timeout.
 
-The cocotb tests in `test/test.py` cover these scenarios and the `CLEAR` command.
+The cocotb tests in `test/test.py` cover these scenarios, `CLEAR` while busy, `target == current`, and `max_attempts = 0`.
 
-The Yosys-only contract checks in `formal/companion_contract.sv` prove the same terminal expectations for the packaged RTL and can be run with:
+The Yosys-only contract checks in `formal/companion_contract.sv` prove the same terminal expectations and edge cases for the packaged RTL and can be run with:
 
 ```sh
 yosys formal/run_yosys_contract.ys

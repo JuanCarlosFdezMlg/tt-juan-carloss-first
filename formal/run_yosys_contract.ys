@@ -1,0 +1,38 @@
+read_verilog -sv src/project.v formal/companion_contract.sv
+prep -top companion_contract_up -flatten
+async2sync
+dffunmap
+chformal -lower
+sat -seq 10 -set-init-zero -prove-asserts companion_contract_up
+
+design -reset
+read_verilog -sv src/project.v formal/companion_contract.sv
+prep -top companion_contract_down -flatten
+async2sync
+dffunmap
+chformal -lower
+sat -seq 11 -set-init-zero -prove-asserts companion_contract_down
+
+design -reset
+read_verilog -sv src/project.v formal/companion_contract.sv
+prep -top companion_contract_timeout_clear -flatten
+async2sync
+dffunmap
+chformal -lower
+sat -seq 11 -set-init-zero -prove-asserts companion_contract_timeout_clear
+
+design -reset
+read_verilog -sv src/project.v formal/companion_contract.sv
+prep -top companion_contract_clear_while_busy -flatten
+async2sync
+dffunmap
+chformal -lower
+sat -seq 7 -set-init-zero -prove-asserts companion_contract_clear_while_busy
+
+design -reset
+read_verilog -sv src/project.v formal/companion_contract.sv
+prep -top companion_contract_equal_and_zero_budget -flatten
+async2sync
+dffunmap
+chformal -lower
+sat -seq 14 -set-init-zero -prove-asserts companion_contract_equal_and_zero_budget

@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-31",
+  "status": "package_ready_for_workshop_pre_gds",
+  "package": "tiny_tapeout/tt_um_gen1_digital_companion_tile",
+  "checks": {
+    "local_python_unittest": {
+      "passed": true,
+      "command": "PYTHONPATH=. python tests/test_gen1_p65_tiny_tapeout_digital_companion.py -v",
+      "tests": 6
+    },
+    "p65_original_picasso": {
+      "verilator_lint": true,
+      "verilator_simulation": true,
+      "yosys_synthesis": true,
+      "cell_count": 158,
+      "source": "artifacts/picasso/gen1_p65_tiny_tapeout_digital_companion/results.json"
+    },
+    "package_picasso": {
+      "verilator_lint": true,
+      "yosys_synthesis": true,
+      "cell_count": 158,
+      "yosys_sat_contract": true,
+      "yosys_sat_proofs": 3,
+      "yosys_sat_log": "artifacts/picasso/tiny_tapeout_package_p65/yosys_contract.stdout.log"
+    },
+    "tiny_tapeout_docs_check": {
+      "passed": true,
+      "command": "python tt/tt_tool.py --check-docs",
+      "log": "artifacts/picasso/tiny_tapeout_docs_check/check_docs.stdout.log"
+    },
+    "package_verilator_binary_simulation": {
+      "passed": true,
+      "fix": "Run the Picasso job with module load pytorch/2.10.0 before invoking the P65 script",
+      "source": "artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/results.json",
+      "rtl_error_observed": false
+    }
+  },
+  "remaining_before_submission": [
+    "Run the official Tiny Tapeout GDS action",
+    "Run the official hosted Tiny Tapeout Docs action in GitHub, despite local tt_tool docs check already passing",
+    "Confirm exact shuttle template and uio_oe expectations during the workshop"
+  ]
+}

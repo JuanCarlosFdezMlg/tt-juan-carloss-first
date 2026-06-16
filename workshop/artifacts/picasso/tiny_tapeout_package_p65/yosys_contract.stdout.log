@@ -1,0 +1,1219 @@
+
+-- Executing script file `formal/run_yosys_contract.ys' --
+
+1. Executing Verilog-2005 frontend: src/project.v
+Parsing SystemVerilog input from `src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_gen1_digital_companion_tile'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: formal/companion_contract.sv
+Parsing SystemVerilog input from `formal/companion_contract.sv' to AST representation.
+Generating RTLIL representation for module `\companion_contract_up'.
+Generating RTLIL representation for module `\companion_contract_down'.
+Generating RTLIL representation for module `\companion_contract_timeout_clear'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \companion_contract_up
+Used module:     \tt_um_gen1_digital_companion_tile
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \companion_contract_up
+Used module:     \tt_um_gen1_digital_companion_tile
+Removing unused module `\companion_contract_timeout_clear'.
+Removing unused module `\companion_contract_down'.
+Removed 2 unused modules.
+Module companion_contract_up directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$formal/companion_contract.sv:27$22 in module companion_contract_up.
+Marked 7 switch rules as full_case in process $proc$src/project.v:66$10 in module tt_um_gen1_digital_companion_tile.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\companion_contract_up.$proc$formal/companion_contract.sv:24$32'.
+  Set init value: \cycle = 5'00000
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~10 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\companion_contract_up.$proc$formal/companion_contract.sv:24$32'.
+Creating decoders for process `\companion_contract_up.$proc$formal/companion_contract.sv:40$24'.
+     1/3: $assert$formal/companion_contract.sv:44$30_EN
+     2/3: $assert$formal/companion_contract.sv:43$28_EN
+     3/3: $assert$formal/companion_contract.sv:42$26_EN
+Creating decoders for process `\companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+     1/1: $1\ui_in[7:0]
+Creating decoders for process `\companion_contract_up.$proc$formal/companion_contract.sv:25$20'.
+Creating decoders for process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+     1/10: $0\verify_ok_q[0:0]
+     2/10: $0\pulse_down_q[0:0]
+     3/10: $0\pulse_up_q[0:0]
+     4/10: $0\fault_q[0:0]
+     5/10: $0\done_q[0:0]
+     6/10: $0\busy_q[0:0]
+     7/10: $0\attempt_q[3:0]
+     8/10: $0\max_attempts_q[3:0]
+     9/10: $0\current_q[5:0]
+    10/10: $0\target_q[5:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\companion_contract_up.\ui_in' from process `\companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+No latch inferred for signal `\companion_contract_up.\uio_in' from process `\companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+No latch inferred for signal `\companion_contract_up.\ena' from process `\companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+No latch inferred for signal `\companion_contract_up.\rst_n' from process `\companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\companion_contract_up.\cycle' using process `\companion_contract_up.$proc$formal/companion_contract.sv:25$20'.
+  created $dff cell `$procdff$241' with positive edge clock.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\target_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$246' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\current_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$251' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\max_attempts_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$256' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\attempt_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$261' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\busy_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$266' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\done_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$271' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\fault_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$276' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_up_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$281' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_down_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$286' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\verify_ok_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+  created $adff cell `$procdff$291' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `companion_contract_up.$proc$formal/companion_contract.sv:24$32'.
+Found and cleaned up 1 empty switch in `\companion_contract_up.$proc$formal/companion_contract.sv:40$24'.
+Removing empty process `companion_contract_up.$proc$formal/companion_contract.sv:40$24'.
+Found and cleaned up 1 empty switch in `\companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+Removing empty process `companion_contract_up.$proc$formal/companion_contract.sv:27$22'.
+Removing empty process `companion_contract_up.$proc$formal/companion_contract.sv:25$20'.
+Found and cleaned up 8 empty switches in `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+Removing empty process `tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$10'.
+Cleaned up 10 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_up.
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~22 debug messages>
+
+3.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module tt_um_gen1_digital_companion_tile.
+<suppressed ~1 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_up.
+<suppressed ~14 debug messages>
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_up..
+Removed 11 unused cells and 112 unused wires.
+<suppressed ~12 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module companion_contract_up...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_up.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_up'.
+Computing hashes of 92 cells of `\companion_contract_up'.
+Finding duplicate cells in `\companion_contract_up'.
+Computing hashes of 88 cells of `\companion_contract_up'.
+Finding duplicate cells in `\companion_contract_up'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \companion_contract_up..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$176: \dut.busy_q -> 1'1
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$172: \dut.busy_q -> 1'0
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$167: \dut.busy_q -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~68 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \companion_contract_up.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_up'.
+Computing hashes of 88 cells of `\companion_contract_up'.
+Finding duplicate cells in `\companion_contract_up'.
+Computing hashes of 86 cells of `\companion_contract_up'.
+Finding duplicate cells in `\companion_contract_up'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_up..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_up.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \companion_contract_up..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~64 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \companion_contract_up.
+Performed a total of 0 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_up'.
+Computing hashes of 86 cells of `\companion_contract_up'.
+Finding duplicate cells in `\companion_contract_up'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_up..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_up.
+
+3.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 4 bits (of 5) from port B of cell companion_contract_up.$add$formal/companion_contract.sv:25$21 ($add).
+Removed top 3 bits (of 5) from port B of cell companion_contract_up.$ge$formal/companion_contract.sv:30$23 ($ge).
+Removed top 1 bits (of 5) from port B of cell companion_contract_up.$eq$formal/companion_contract.sv:41$25 ($eq).
+Removed top 2 bits (of 8) from port B of cell companion_contract_up.$eq$formal/companion_contract.sv:43$29 ($eq).
+Removed top 2 bits (of 5) from port B of cell companion_contract_up.$procmux$74_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_up.$procmux$75_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_up.$procmux$76_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell companion_contract_up.$flatten\dut.$procmux$235_CMP0 ($eq).
+Removed top 5 bits (of 6) from port B of cell companion_contract_up.$flatten\dut.$sub$src/project.v:98$17 ($sub).
+Removed top 5 bits (of 6) from port B of cell companion_contract_up.$flatten\dut.$add$src/project.v:95$16 ($add).
+Removed top 3 bits (of 4) from port B of cell companion_contract_up.$flatten\dut.$add$src/project.v:93$14 ($add).
+Removed top 2 bits (of 4) from mux cell companion_contract_up.$flatten\dut.$ternary$src/project.v:48$2 ($mux).
+Removed top 2 bits (of 4) from wire companion_contract_up.$flatten\dut.$ternary$src/project.v:48$2_Y.
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_up..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_up.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_up'.
+Computing hashes of 86 cells of `\companion_contract_up'.
+Finding duplicate cells in `\companion_contract_up'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_up..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== companion_contract_up ===
+
+        +----------Local Count, excluding submodules.
+        |
+      102 wires
+      295 wire bits
+       36 public wires
+      138 public wire bits
+        1 ports
+        1 port bits
+       86 cells
+        3   $add
+       10   $adff
+        3   $check
+        1   $dff
+       10   $eq
+        2   $ge
+        3   $logic_not
+        1   $lt
+       50   $mux
+        1   $pmux
+        1   $scopeinfo
+        1   $sub
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module companion_contract_up...
+Found and reported 0 problems.
+
+4. Executing ASYNC2SYNC pass.
+Replacing companion_contract_up.$flatten\dut.$procdff$246 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\target_q[5:0], Q=\dut.target_q
+Replacing companion_contract_up.$flatten\dut.$procdff$251 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\current_q[5:0], Q=\dut.current_q
+Replacing companion_contract_up.$flatten\dut.$procdff$256 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\max_attempts_q[3:0], Q=\dut.max_attempts_q
+Replacing companion_contract_up.$flatten\dut.$procdff$261 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\attempt_q[3:0], Q=\dut.attempt_q
+Replacing companion_contract_up.$flatten\dut.$procdff$266 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\busy_q[0:0], Q=\dut.busy_q
+Replacing companion_contract_up.$flatten\dut.$procdff$271 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\done_q[0:0], Q=\dut.done_q
+Replacing companion_contract_up.$flatten\dut.$procdff$276 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\fault_q[0:0], Q=\dut.fault_q
+Replacing companion_contract_up.$flatten\dut.$procdff$281 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pulse_up_q[0:0], Q=\dut.pulse_up_q
+Replacing companion_contract_up.$flatten\dut.$procdff$286 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pulse_down_q[0:0], Q=\dut.pulse_down_q
+Replacing companion_contract_up.$flatten\dut.$procdff$291 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\verify_ok_q[0:0], Q=\dut.verify_ok_q
+
+5. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import set-constraint from init attribute: \cycle = 5'00000
+Final init constraint equation: { $auto$async2sync.cc:253:execute$312 $auto$async2sync.cc:253:execute$310 $auto$async2sync.cc:253:execute$308 $auto$async2sync.cc:253:execute$306 $auto$async2sync.cc:253:execute$304 $auto$async2sync.cc:253:execute$302 $auto$async2sync.cc:253:execute$300 $auto$async2sync.cc:253:execute$298 $auto$async2sync.cc:253:execute$296 $auto$async2sync.cc:253:execute$294 \cycle } = 31'0000000000000000000000000000000
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 8:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 9:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Setting up time step 10:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:43$29_Y when $assert$formal/companion_contract.sv:42$26_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:42$27_Y when $assert$formal/companion_contract.sv:42$26_EN.
+
+Solving problem with 17302 variables and 47051 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$
+                 /$$__  $$    | $$_____/    | $$__  $$
+                | $$  \ $$    | $$          | $$  \ $$
+                | $$  | $$    | $$$$$       | $$  | $$
+                | $$  | $$    | $$__/       | $$  | $$
+                | $$/$$ $$    | $$          | $$  | $$
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/
+
+7. Executing Verilog-2005 frontend: src/project.v
+Parsing SystemVerilog input from `src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_gen1_digital_companion_tile'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: formal/companion_contract.sv
+Parsing SystemVerilog input from `formal/companion_contract.sv' to AST representation.
+Generating RTLIL representation for module `\companion_contract_up'.
+Generating RTLIL representation for module `\companion_contract_down'.
+Generating RTLIL representation for module `\companion_contract_timeout_clear'.
+Successfully finished Verilog frontend.
+
+9. Executing PREP pass.
+
+9.1. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1.1. Analyzing design hierarchy..
+Top module:  \companion_contract_down
+Used module:     \tt_um_gen1_digital_companion_tile
+
+9.1.2. Analyzing design hierarchy..
+Top module:  \companion_contract_down
+Used module:     \tt_um_gen1_digital_companion_tile
+Removing unused module `\companion_contract_timeout_clear'.
+Removing unused module `\companion_contract_up'.
+Removed 2 unused modules.
+Module companion_contract_down directly or indirectly contains formal properties -> setting "keep" attribute.
+
+9.2. Executing PROC pass (convert processes to netlists).
+
+9.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$formal/companion_contract.sv:73$383 in module companion_contract_down.
+Marked 7 switch rules as full_case in process $proc$src/project.v:66$358 in module tt_um_gen1_digital_companion_tile.
+Removed a total of 0 dead cases.
+
+9.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+9.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\companion_contract_down.$proc$formal/companion_contract.sv:70$393'.
+  Set init value: \cycle = 5'00000
+
+9.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+
+9.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~10 debug messages>
+
+9.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\companion_contract_down.$proc$formal/companion_contract.sv:70$393'.
+Creating decoders for process `\companion_contract_down.$proc$formal/companion_contract.sv:86$385'.
+     1/3: $assert$formal/companion_contract.sv:90$391_EN
+     2/3: $assert$formal/companion_contract.sv:89$389_EN
+     3/3: $assert$formal/companion_contract.sv:88$387_EN
+Creating decoders for process `\companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+     1/1: $1\ui_in[7:0]
+Creating decoders for process `\companion_contract_down.$proc$formal/companion_contract.sv:71$381'.
+Creating decoders for process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+     1/10: $0\fault_q[0:0]
+     2/10: $0\pulse_up_q[0:0]
+     3/10: $0\pulse_down_q[0:0]
+     4/10: $0\verify_ok_q[0:0]
+     5/10: $0\target_q[5:0]
+     6/10: $0\current_q[5:0]
+     7/10: $0\max_attempts_q[3:0]
+     8/10: $0\attempt_q[3:0]
+     9/10: $0\busy_q[0:0]
+    10/10: $0\done_q[0:0]
+
+9.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\companion_contract_down.\ui_in' from process `\companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+No latch inferred for signal `\companion_contract_down.\uio_in' from process `\companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+No latch inferred for signal `\companion_contract_down.\ena' from process `\companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+No latch inferred for signal `\companion_contract_down.\rst_n' from process `\companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+
+9.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\companion_contract_down.\cycle' using process `\companion_contract_down.$proc$formal/companion_contract.sv:71$381'.
+  created $dff cell `$procdff$589' with positive edge clock.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\done_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$594' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\busy_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$599' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\attempt_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$604' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\max_attempts_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$609' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\current_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$614' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\target_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$619' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\verify_ok_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$624' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_down_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$629' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_up_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$634' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\fault_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+  created $adff cell `$procdff$639' with positive edge clock and positive level reset.
+
+9.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `companion_contract_down.$proc$formal/companion_contract.sv:70$393'.
+Found and cleaned up 1 empty switch in `\companion_contract_down.$proc$formal/companion_contract.sv:86$385'.
+Removing empty process `companion_contract_down.$proc$formal/companion_contract.sv:86$385'.
+Found and cleaned up 1 empty switch in `\companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+Removing empty process `companion_contract_down.$proc$formal/companion_contract.sv:73$383'.
+Removing empty process `companion_contract_down.$proc$formal/companion_contract.sv:71$381'.
+Found and cleaned up 8 empty switches in `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+Removing empty process `tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$358'.
+Cleaned up 10 empty switches.
+
+9.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_down.
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~22 debug messages>
+
+9.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module tt_um_gen1_digital_companion_tile.
+<suppressed ~1 debug messages>
+
+9.4. Executing FUTURE pass.
+
+9.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_down.
+<suppressed ~14 debug messages>
+
+9.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_down..
+Removed 11 unused cells and 112 unused wires.
+<suppressed ~12 debug messages>
+
+9.7. Executing CHECK pass (checking for obvious problems).
+Checking module companion_contract_down...
+Found and reported 0 problems.
+
+9.8. Executing OPT pass (performing simple optimizations).
+
+9.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_down.
+
+9.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_down'.
+Computing hashes of 92 cells of `\companion_contract_down'.
+Finding duplicate cells in `\companion_contract_down'.
+Computing hashes of 88 cells of `\companion_contract_down'.
+Finding duplicate cells in `\companion_contract_down'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+9.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \companion_contract_down..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$562: \dut.busy_q -> 1'1
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$558: \dut.busy_q -> 1'0
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$553: \dut.busy_q -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~68 debug messages>
+
+9.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \companion_contract_down.
+Performed a total of 0 changes.
+
+9.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_down'.
+Computing hashes of 88 cells of `\companion_contract_down'.
+Finding duplicate cells in `\companion_contract_down'.
+Computing hashes of 86 cells of `\companion_contract_down'.
+Finding duplicate cells in `\companion_contract_down'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+9.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_down..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+9.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_down.
+
+9.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \companion_contract_down..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~64 debug messages>
+
+9.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \companion_contract_down.
+Performed a total of 0 changes.
+
+9.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_down'.
+Computing hashes of 86 cells of `\companion_contract_down'.
+Finding duplicate cells in `\companion_contract_down'.
+Removed a total of 0 cells.
+
+9.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_down..
+
+9.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_down.
+
+9.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+9.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 5) from port B of cell companion_contract_down.$procmux$424_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_down.$procmux$423_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell companion_contract_down.$procmux$422_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell companion_contract_down.$eq$formal/companion_contract.sv:89$390 ($eq).
+Removed top 1 bits (of 5) from port B of cell companion_contract_down.$eq$formal/companion_contract.sv:87$386 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_down.$ge$formal/companion_contract.sv:76$384 ($ge).
+Removed top 4 bits (of 5) from port B of cell companion_contract_down.$add$formal/companion_contract.sv:71$382 ($add).
+Removed top 1 bits (of 2) from port B of cell companion_contract_down.$flatten\dut.$procmux$500_CMP0 ($eq).
+Removed top 5 bits (of 6) from port B of cell companion_contract_down.$flatten\dut.$sub$src/project.v:98$365 ($sub).
+Removed top 5 bits (of 6) from port B of cell companion_contract_down.$flatten\dut.$add$src/project.v:95$364 ($add).
+Removed top 3 bits (of 4) from port B of cell companion_contract_down.$flatten\dut.$add$src/project.v:93$362 ($add).
+Removed top 2 bits (of 4) from mux cell companion_contract_down.$flatten\dut.$ternary$src/project.v:48$350 ($mux).
+Removed top 2 bits (of 4) from wire companion_contract_down.$flatten\dut.$ternary$src/project.v:48$350_Y.
+
+9.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_down..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+9.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+9.12. Executing OPT pass (performing simple optimizations).
+
+9.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_down.
+
+9.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_down'.
+Computing hashes of 86 cells of `\companion_contract_down'.
+Finding duplicate cells in `\companion_contract_down'.
+Removed a total of 0 cells.
+
+9.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_down..
+
+9.12.4. Finished fast OPT passes.
+
+9.13. Executing SORT pass.
+
+9.14. Printing statistics.
+
+=== companion_contract_down ===
+
+        +----------Local Count, excluding submodules.
+        |
+      102 wires
+      295 wire bits
+       36 public wires
+      138 public wire bits
+        1 ports
+        1 port bits
+       86 cells
+        3   $add
+       10   $adff
+        3   $check
+        1   $dff
+       10   $eq
+        2   $ge
+        3   $logic_not
+        1   $lt
+       50   $mux
+        1   $pmux
+        1   $scopeinfo
+        1   $sub
+
+9.15. Executing CHECK pass (checking for obvious problems).
+Checking module companion_contract_down...
+Found and reported 0 problems.
+
+10. Executing ASYNC2SYNC pass.
+Replacing companion_contract_down.$flatten\dut.$procdff$594 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\done_q[0:0], Q=\dut.done_q
+Replacing companion_contract_down.$flatten\dut.$procdff$599 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\busy_q[0:0], Q=\dut.busy_q
+Replacing companion_contract_down.$flatten\dut.$procdff$604 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\attempt_q[3:0], Q=\dut.attempt_q
+Replacing companion_contract_down.$flatten\dut.$procdff$609 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\max_attempts_q[3:0], Q=\dut.max_attempts_q
+Replacing companion_contract_down.$flatten\dut.$procdff$614 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\current_q[5:0], Q=\dut.current_q
+Replacing companion_contract_down.$flatten\dut.$procdff$619 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\target_q[5:0], Q=\dut.target_q
+Replacing companion_contract_down.$flatten\dut.$procdff$624 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\verify_ok_q[0:0], Q=\dut.verify_ok_q
+Replacing companion_contract_down.$flatten\dut.$procdff$629 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pulse_down_q[0:0], Q=\dut.pulse_down_q
+Replacing companion_contract_down.$flatten\dut.$procdff$634 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pulse_up_q[0:0], Q=\dut.pulse_up_q
+Replacing companion_contract_down.$flatten\dut.$procdff$639 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\fault_q[0:0], Q=\dut.fault_q
+
+11. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+12. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import set-constraint from init attribute: \cycle = 5'00000
+Final init constraint equation: { $auto$async2sync.cc:253:execute$660 $auto$async2sync.cc:253:execute$658 $auto$async2sync.cc:253:execute$656 $auto$async2sync.cc:253:execute$654 $auto$async2sync.cc:253:execute$652 $auto$async2sync.cc:253:execute$650 $auto$async2sync.cc:253:execute$648 $auto$async2sync.cc:253:execute$646 $auto$async2sync.cc:253:execute$644 $auto$async2sync.cc:253:execute$642 \cycle } = 31'0000000000000000000000000000000
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 8:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 9:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 10:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Setting up time step 11:
+Final constraint equation: { } = { }
+Imported 112 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:89$390_Y when $assert$formal/companion_contract.sv:88$387_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:88$388_Y when $assert$formal/companion_contract.sv:88$387_EN.
+
+Solving problem with 19058 variables and 51834 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$
+                 /$$__  $$    | $$_____/    | $$__  $$
+                | $$  \ $$    | $$          | $$  \ $$
+                | $$  | $$    | $$$$$       | $$  | $$
+                | $$  | $$    | $$__/       | $$  | $$
+                | $$/$$ $$    | $$          | $$  | $$
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/
+
+13. Executing Verilog-2005 frontend: src/project.v
+Parsing SystemVerilog input from `src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_gen1_digital_companion_tile'.
+Successfully finished Verilog frontend.
+
+14. Executing Verilog-2005 frontend: formal/companion_contract.sv
+Parsing SystemVerilog input from `formal/companion_contract.sv' to AST representation.
+Generating RTLIL representation for module `\companion_contract_up'.
+Generating RTLIL representation for module `\companion_contract_down'.
+Generating RTLIL representation for module `\companion_contract_timeout_clear'.
+Successfully finished Verilog frontend.
+
+15. Executing PREP pass.
+
+15.1. Executing HIERARCHY pass (managing design hierarchy).
+
+15.1.1. Analyzing design hierarchy..
+Top module:  \companion_contract_timeout_clear
+Used module:     \tt_um_gen1_digital_companion_tile
+
+15.1.2. Analyzing design hierarchy..
+Top module:  \companion_contract_timeout_clear
+Used module:     \tt_um_gen1_digital_companion_tile
+Removing unused module `\companion_contract_down'.
+Removing unused module `\companion_contract_up'.
+Removed 2 unused modules.
+Module companion_contract_timeout_clear directly or indirectly contains formal properties -> setting "keep" attribute.
+
+15.2. Executing PROC pass (convert processes to netlists).
+
+15.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+15.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$formal/companion_contract.sv:119$744 in module companion_contract_timeout_clear.
+Marked 7 switch rules as full_case in process $proc$src/project.v:66$706 in module tt_um_gen1_digital_companion_tile.
+Removed a total of 0 dead cases.
+
+15.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 6 assignments to connections.
+
+15.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:116$761'.
+  Set init value: \cycle = 5'00000
+
+15.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+
+15.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+15.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:116$761'.
+Creating decoders for process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:133$746'.
+     1/6: $assert$formal/companion_contract.sv:142$759_EN
+     2/6: $assert$formal/companion_contract.sv:141$757_EN
+     3/6: $assert$formal/companion_contract.sv:140$755_EN
+     4/6: $assert$formal/companion_contract.sv:137$752_EN
+     5/6: $assert$formal/companion_contract.sv:136$750_EN
+     6/6: $assert$formal/companion_contract.sv:135$748_EN
+Creating decoders for process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+     1/1: $1\ui_in[7:0]
+Creating decoders for process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:117$742'.
+Creating decoders for process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+     1/10: $0\fault_q[0:0]
+     2/10: $0\pulse_up_q[0:0]
+     3/10: $0\pulse_down_q[0:0]
+     4/10: $0\verify_ok_q[0:0]
+     5/10: $0\target_q[5:0]
+     6/10: $0\current_q[5:0]
+     7/10: $0\max_attempts_q[3:0]
+     8/10: $0\attempt_q[3:0]
+     9/10: $0\busy_q[0:0]
+    10/10: $0\done_q[0:0]
+
+15.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\companion_contract_timeout_clear.\ui_in' from process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+No latch inferred for signal `\companion_contract_timeout_clear.\uio_in' from process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+No latch inferred for signal `\companion_contract_timeout_clear.\ena' from process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+No latch inferred for signal `\companion_contract_timeout_clear.\rst_n' from process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+
+15.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\companion_contract_timeout_clear.\cycle' using process `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:117$742'.
+  created $dff cell `$procdff$944' with positive edge clock.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\done_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$949' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\busy_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$954' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\attempt_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$959' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\max_attempts_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$964' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\current_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$969' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\target_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$974' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\verify_ok_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$979' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_down_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$984' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_up_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$989' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\fault_q' using process `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+  created $adff cell `$procdff$994' with positive edge clock and positive level reset.
+
+15.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+15.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `companion_contract_timeout_clear.$proc$formal/companion_contract.sv:116$761'.
+Found and cleaned up 2 empty switches in `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:133$746'.
+Removing empty process `companion_contract_timeout_clear.$proc$formal/companion_contract.sv:133$746'.
+Found and cleaned up 1 empty switch in `\companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+Removing empty process `companion_contract_timeout_clear.$proc$formal/companion_contract.sv:119$744'.
+Removing empty process `companion_contract_timeout_clear.$proc$formal/companion_contract.sv:117$742'.
+Found and cleaned up 8 empty switches in `\tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+Removing empty process `tt_um_gen1_digital_companion_tile.$proc$src/project.v:66$706'.
+Cleaned up 11 empty switches.
+
+15.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_timeout_clear.
+<suppressed ~1 debug messages>
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~22 debug messages>
+
+15.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module tt_um_gen1_digital_companion_tile.
+<suppressed ~1 debug messages>
+
+15.4. Executing FUTURE pass.
+
+15.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_timeout_clear.
+<suppressed ~15 debug messages>
+
+15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_timeout_clear..
+Removed 11 unused cells and 119 unused wires.
+<suppressed ~12 debug messages>
+
+15.7. Executing CHECK pass (checking for obvious problems).
+Checking module companion_contract_timeout_clear...
+Found and reported 0 problems.
+
+15.8. Executing OPT pass (performing simple optimizations).
+
+15.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_timeout_clear.
+
+15.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_timeout_clear'.
+Computing hashes of 102 cells of `\companion_contract_timeout_clear'.
+Finding duplicate cells in `\companion_contract_timeout_clear'.
+Computing hashes of 97 cells of `\companion_contract_timeout_clear'.
+Finding duplicate cells in `\companion_contract_timeout_clear'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+15.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \companion_contract_timeout_clear..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$917: \dut.busy_q -> 1'1
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$913: \dut.busy_q -> 1'0
+      Replacing known input bits on port A of cell $flatten\dut.$procmux$908: \dut.busy_q -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~74 debug messages>
+
+15.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \companion_contract_timeout_clear.
+Performed a total of 0 changes.
+
+15.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_timeout_clear'.
+Computing hashes of 97 cells of `\companion_contract_timeout_clear'.
+Finding duplicate cells in `\companion_contract_timeout_clear'.
+Computing hashes of 93 cells of `\companion_contract_timeout_clear'.
+Finding duplicate cells in `\companion_contract_timeout_clear'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+15.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_timeout_clear..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+15.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_timeout_clear.
+
+15.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+15.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \companion_contract_timeout_clear..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+15.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \companion_contract_timeout_clear.
+Performed a total of 0 changes.
+
+15.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_timeout_clear'.
+Computing hashes of 93 cells of `\companion_contract_timeout_clear'.
+Finding duplicate cells in `\companion_contract_timeout_clear'.
+Removed a total of 0 cells.
+
+15.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_timeout_clear..
+
+15.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_timeout_clear.
+
+15.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+15.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 4) from port B of cell companion_contract_timeout_clear.$flatten\dut.$add$src/project.v:93$710 ($add).
+Removed top 5 bits (of 6) from port B of cell companion_contract_timeout_clear.$flatten\dut.$add$src/project.v:95$712 ($add).
+Removed top 5 bits (of 6) from port B of cell companion_contract_timeout_clear.$flatten\dut.$sub$src/project.v:98$713 ($sub).
+Removed top 1 bits (of 2) from port B of cell companion_contract_timeout_clear.$flatten\dut.$procmux$855_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_timeout_clear.$procmux$779_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_timeout_clear.$procmux$778_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell companion_contract_timeout_clear.$procmux$777_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell companion_contract_timeout_clear.$procmux$776_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell companion_contract_timeout_clear.$eq$formal/companion_contract.sv:139$754 ($eq).
+Removed top 2 bits (of 8) from port B of cell companion_contract_timeout_clear.$eq$formal/companion_contract.sv:136$751 ($eq).
+Removed top 3 bits (of 5) from port B of cell companion_contract_timeout_clear.$ge$formal/companion_contract.sv:122$745 ($ge).
+Removed top 4 bits (of 5) from port B of cell companion_contract_timeout_clear.$add$formal/companion_contract.sv:117$743 ($add).
+Removed top 2 bits (of 4) from mux cell companion_contract_timeout_clear.$flatten\dut.$ternary$src/project.v:48$698 ($mux).
+Removed top 2 bits (of 4) from wire companion_contract_timeout_clear.$flatten\dut.$ternary$src/project.v:48$698_Y.
+
+15.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_timeout_clear..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+15.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+15.12. Executing OPT pass (performing simple optimizations).
+
+15.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module companion_contract_timeout_clear.
+
+15.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\companion_contract_timeout_clear'.
+Computing hashes of 93 cells of `\companion_contract_timeout_clear'.
+Finding duplicate cells in `\companion_contract_timeout_clear'.
+Removed a total of 0 cells.
+
+15.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \companion_contract_timeout_clear..
+
+15.12.4. Finished fast OPT passes.
+
+15.13. Executing SORT pass.
+
+15.14. Printing statistics.
+
+=== companion_contract_timeout_clear ===
+
+        +----------Local Count, excluding submodules.
+        |
+      106 wires
+      299 wire bits
+       36 public wires
+      138 public wire bits
+        1 ports
+        1 port bits
+       93 cells
+        3   $add
+       10   $adff
+        6   $check
+        1   $dff
+       12   $eq
+        2   $ge
+        4   $logic_not
+        1   $lt
+       51   $mux
+        1   $pmux
+        1   $scopeinfo
+        1   $sub
+
+15.15. Executing CHECK pass (checking for obvious problems).
+Checking module companion_contract_timeout_clear...
+Found and reported 0 problems.
+
+16. Executing ASYNC2SYNC pass.
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$949 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\done_q[0:0], Q=\dut.done_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$954 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\busy_q[0:0], Q=\dut.busy_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$959 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\attempt_q[3:0], Q=\dut.attempt_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$964 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\max_attempts_q[3:0], Q=\dut.max_attempts_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$969 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\current_q[5:0], Q=\dut.current_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$974 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\target_q[5:0], Q=\dut.target_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$979 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\verify_ok_q[0:0], Q=\dut.verify_ok_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$984 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pulse_down_q[0:0], Q=\dut.pulse_down_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$989 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\pulse_up_q[0:0], Q=\dut.pulse_up_q
+Replacing companion_contract_timeout_clear.$flatten\dut.$procdff$994 ($adff): ARST=\dut.rst_n, D=$flatten\dut.$0\fault_q[0:0], Q=\dut.fault_q
+
+17. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+18. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import set-constraint from init attribute: \cycle = 5'00000
+Final init constraint equation: { $auto$async2sync.cc:253:execute$1015 $auto$async2sync.cc:253:execute$1013 $auto$async2sync.cc:253:execute$1011 $auto$async2sync.cc:253:execute$1009 $auto$async2sync.cc:253:execute$1007 $auto$async2sync.cc:253:execute$1005 $auto$async2sync.cc:253:execute$1003 $auto$async2sync.cc:253:execute$1001 $auto$async2sync.cc:253:execute$999 $auto$async2sync.cc:253:execute$997 \cycle } = 31'0000000000000000000000000000000
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 8:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 9:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 10:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Setting up time step 11:
+Final constraint equation: { } = { }
+Imported 125 cells to SAT database.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:141$758_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:140$756_Y when $assert$formal/companion_contract.sv:140$755_EN.
+Import proof for assert: 1'1 when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:136$751_Y when $assert$formal/companion_contract.sv:135$748_EN.
+Import proof for assert: $eq$formal/companion_contract.sv:135$749_Y when $assert$formal/companion_contract.sv:135$748_EN.
+
+Solving problem with 19740 variables and 53858 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$
+                 /$$__  $$    | $$_____/    | $$__  $$
+                | $$  \ $$    | $$          | $$  \ $$
+                | $$  | $$    | $$$$$       | $$  | $$
+                | $$  | $$    | $$__/       | $$  | $$
+                | $$/$$ $$    | $$          | $$  | $$
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/
+
+End of script. Logfile hash: 7d1985e9fc, time: 0.24s, user: 0.23s, system: 0.03s, MEM: 26.41 MB peak
+Yosys 0.64+197 (git sha1 4e35ed595, clang++ 18.1.8 -fPIC -O3)
+Time spent: 66% 3x sat (0 sec), 12% 9x read_verilog (0 sec), ...

@@ -1,0 +1,865 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64+197 (git sha1 4e35ed595, clang++ 18.1.8 -fPIC -O3)
+
+-- Running command `read_verilog tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v; synth -top tt_um_gen1_digital_companion_tile; stat' --
+
+1. Executing Verilog-2005 frontend: tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v
+Parsing Verilog input from `tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v' to AST representation.
+Generating RTLIL representation for module `\tt_um_gen1_digital_companion_tile'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \tt_um_gen1_digital_companion_tile
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \tt_um_gen1_digital_companion_tile
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 7 switch rules as full_case in process $proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10 in module tt_um_gen1_digital_companion_tile.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~8 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+     1/10: $0\verify_ok_q[0:0]
+     2/10: $0\pulse_down_q[0:0]
+     3/10: $0\pulse_up_q[0:0]
+     4/10: $0\fault_q[0:0]
+     5/10: $0\done_q[0:0]
+     6/10: $0\busy_q[0:0]
+     7/10: $0\attempt_q[3:0]
+     8/10: $0\max_attempts_q[3:0]
+     9/10: $0\current_q[5:0]
+    10/10: $0\target_q[5:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\target_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$188' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\current_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$193' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\max_attempts_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$198' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\attempt_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$203' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\busy_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$208' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\done_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$213' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\fault_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$218' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_up_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$223' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\pulse_down_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$228' with positive edge clock and positive level reset.
+Creating register for signal `\tt_um_gen1_digital_companion_tile.\verify_ok_q' using process `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+  created $adff cell `$procdff$233' with positive edge clock and positive level reset.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+Removing empty process `tt_um_gen1_digital_companion_tile.$proc$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:66$10'.
+Cleaned up 8 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~22 debug messages>
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 11 unused cells and 86 unused wires.
+<suppressed ~12 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_gen1_digital_companion_tile...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 88 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 84 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$119: \busy_q -> 1'1
+      Replacing known input bits on port A of cell $procmux$115: \busy_q -> 1'0
+      Replacing known input bits on port A of cell $procmux$110: \busy_q -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~75 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 84 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~75 debug messages>
+
+2.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 84 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.7. Executing FSM pass (extract and optimize FSM).
+
+2.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 84 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~75 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 84 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$228 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$50_Y, Q = \pulse_down_q).
+Adding EN signal on $procdff$198 ($adff) from module tt_um_gen1_digital_companion_tile (D = $ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:126$19_Y, Q = \max_attempts_q).
+Adding EN signal on $procdff$233 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$30_Y, Q = \verify_ok_q).
+Adding EN signal on $procdff$193 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$171_Y, Q = \current_q).
+Adding EN signal on $procdff$203 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$142_Y, Q = \attempt_q).
+Adding EN signal on $procdff$208 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$124_Y, Q = \busy_q).
+Adding EN signal on $procdff$213 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$106_Y, Q = \done_q).
+Adding EN signal on $procdff$218 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$88_Y, Q = \fault_q).
+Adding EN signal on $procdff$188 ($adff) from module tt_um_gen1_digital_companion_tile (D = \ui_in [5:0], Q = \target_q).
+Adding EN signal on $procdff$223 ($adff) from module tt_um_gen1_digital_companion_tile (D = $procmux$70_Y, Q = \pulse_up_q).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~7 debug messages>
+
+2.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+2.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 91 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 81 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 80 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 79 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+2.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+2.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~64 debug messages>
+
+2.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 79 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.8.23. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell tt_um_gen1_digital_companion_tile.$auto$opt_dff.cc:235:make_patterns_logic$281 ($ne).
+Removed top 2 bits (of 3) from port B of cell tt_um_gen1_digital_companion_tile.$auto$opt_dff.cc:235:make_patterns_logic$270 ($ne).
+Removed top 2 bits (of 4) from mux cell tt_um_gen1_digital_companion_tile.$ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:48$2 ($mux).
+Removed top 2 bits (of 4) from mux cell tt_um_gen1_digital_companion_tile.$ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:48$3 ($mux).
+Removed top 2 bits (of 4) from mux cell tt_um_gen1_digital_companion_tile.$ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:48$4 ($mux).
+Removed top 3 bits (of 4) from port B of cell tt_um_gen1_digital_companion_tile.$add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:93$14 ($add).
+Removed top 5 bits (of 6) from port B of cell tt_um_gen1_digital_companion_tile.$add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:95$16 ($add).
+Removed top 5 bits (of 6) from port B of cell tt_um_gen1_digital_companion_tile.$sub$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:98$17 ($sub).
+Removed top 1 bits (of 2) from port B of cell tt_um_gen1_digital_companion_tile.$procmux$178_CMP0 ($eq).
+Removed top 2 bits (of 4) from wire tt_um_gen1_digital_companion_tile.$ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:48$3_Y.
+Removed top 2 bits (of 4) from wire tt_um_gen1_digital_companion_tile.$ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:48$2_Y.
+Removed top 2 bits (of 4) from wire tt_um_gen1_digital_companion_tile.state_code.
+
+2.10. Executing PEEPOPT pass (run peephole optimizers).
+
+2.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module tt_um_gen1_digital_companion_tile:
+  creating $macc model for $sub$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:98$17 ($sub).
+  creating $macc model for $add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:95$16 ($add).
+  creating $macc model for $add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:93$14 ($add).
+  creating $alu model for $macc $add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:93$14.
+  creating $alu model for $macc $add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:95$16.
+  creating $alu model for $macc $sub$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:98$17.
+  creating $alu model for $lt$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:94$15 ($lt): new $alu
+  creating $alu model for $ge$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:88$13 ($ge): new $alu
+  creating $alu model for $eq$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:84$12 ($eq): merged with $lt$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:94$15.
+  creating $alu cell for $ge$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:88$13: $auto$alumacc.cc:512:replace_alu$295
+  creating $alu cell for $lt$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:94$15, $eq$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:84$12: $auto$alumacc.cc:512:replace_alu$308
+  creating $alu cell for $sub$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:98$17: $auto$alumacc.cc:512:replace_alu$315
+  creating $alu cell for $add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:95$16: $auto$alumacc.cc:512:replace_alu$318
+  creating $alu cell for $add$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:93$14: $auto$alumacc.cc:512:replace_alu$321
+  created 5 $alu and 0 $macc cells.
+
+2.13. Executing SHARE pass (SAT-based resource sharing).
+
+2.14. Executing OPT pass (performing simple optimizations).
+
+2.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~3 debug messages>
+
+2.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 85 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~64 debug messages>
+
+2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 85 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 1 unused cells and 4 unused wires.
+<suppressed ~2 debug messages>
+
+2.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~64 debug messages>
+
+2.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 84 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.15. Executing MEMORY pass.
+
+2.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.17. Executing OPT pass (performing simple optimizations).
+
+2.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~23 debug messages>
+
+2.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 67 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 66 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 18 unused wires.
+<suppressed ~1 debug messages>
+
+2.17.5. Finished fast OPT passes.
+
+2.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~1 debug messages>
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 65 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+2.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+    Consolidated identical input bits for $mux cell $ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:64$9:
+      Old ports: A=8'00000000, B=8'11111111, Y=\uio_oe
+      New ports: A=1'0, B=1'1, Y=\uio_oe [0]
+      New connections: \uio_oe [7:1] = { \uio_oe [0] \uio_oe [0] \uio_oe [0] \uio_oe [0] \uio_oe [0] \uio_oe [0] \uio_oe [0] }
+    Consolidated identical input bits for $mux cell $ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:63$8:
+      Old ports: A=8'00000000, B={ \attempt_q 2'00 \state_code }, Y=\uio_out
+      New ports: A=6'000000, B={ \attempt_q \state_code }, Y={ \uio_out [7:4] \uio_out [1:0] }
+      New connections: \uio_out [3:2] = 2'00
+    Consolidated identical input bits for $mux cell $ternary$tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v:48$2:
+      Old ports: A=2'00, B=2'10, Y=$auto$wreduce.cc:514:run$291 [1:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:514:run$291 [1]
+      New connections: $auto$wreduce.cc:514:run$291 [0] = 1'0
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 3 changes.
+
+2.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 65 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.19.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $mux $procmux$163 in front of them:
+        $auto$alumacc.cc:512:replace_alu$315
+        $auto$alumacc.cc:512:replace_alu$318
+
+2.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+2.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~4 debug messages>
+
+2.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+2.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+    Consolidated identical input bits for $mux cell $auto$opt_share.cc:244:merge_operators$327:
+      Old ports: A=6'111111, B=6'000001, Y=$auto$rtlil.cc:3390:Mux$328
+      New ports: A=1'1, B=1'0, Y=$auto$rtlil.cc:3390:Mux$328 [1]
+      New connections: { $auto$rtlil.cc:3390:Mux$328 [5:2] $auto$rtlil.cc:3390:Mux$328 [0] } = { $auto$rtlil.cc:3390:Mux$328 [1] $auto$rtlil.cc:3390:Mux$328 [1] $auto$rtlil.cc:3390:Mux$328 [1] $auto$rtlil.cc:3390:Mux$328 [1] 1'1 }
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 1 changes.
+
+2.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 62 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.19.14. Executing OPT_SHARE pass.
+
+2.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~1 debug messages>
+
+2.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 62 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 61 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.19.22. Executing OPT_SHARE pass.
+
+2.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.19.26. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.19.27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tt_um_gen1_digital_companion_tile..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~23 debug messages>
+
+2.19.28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tt_um_gen1_digital_companion_tile.
+Performed a total of 0 changes.
+
+2.19.29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 61 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.19.30. Executing OPT_SHARE pass.
+
+2.19.31. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.32. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+
+2.19.33. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.19.34. Finished fast OPT passes. (There is nothing left to do.)
+
+2.20. Executing TECHMAP pass (map to technology primitives).
+
+2.20.1. Executing Verilog-2005 frontend: /mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+2.20.2. Continuing TECHMAP pass.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using template $paramod$00298f3f8094950cb9a5ff2fda48d0d8bde8806c\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod$740b056ede97228d3eae64ea2fdc81f0a33e0fe7\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000110 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~547 debug messages>
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+<suppressed ~135 debug messages>
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 246 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 233 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+<suppressed ~39 debug messages>
+Removed a total of 13 cells.
+
+2.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 28 unused cells and 212 unused wires.
+<suppressed ~29 debug messages>
+
+2.21.5. Finished fast OPT passes.
+
+2.22. Executing ABC pass (technology mapping using ABC).
+
+2.22.1. Extracting gate netlist of module `\tt_um_gen1_digital_companion_tile' to `<abc-temp-dir>/input.blif'..
+
+2.22.1.1. Executed ABC.
+Extracted 179 gates and 216 wires to a netlist network with 35 inputs and 38 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled May  8 2026 04:13:39)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif
+ABC: + read_library <abc-temp-dir>/stdcells.genlib
+ABC: + strash
+ABC: + &get -n
+ABC: + &fraig -x
+ABC: + &put
+ABC: + scorr
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2
+ABC: + dretime
+ABC: + strash
+ABC: + &get -n
+ABC: + &dch -f
+ABC: + &nf
+ABC: + &put
+ABC: + write_blif <abc-temp-dir>/output.blif
+ABC:
+ABC: YOSYS_ABC_DONE
+
+2.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       44
+ABC RESULTS:            ANDNOT cells:       14
+ABC RESULTS:               BUF cells:        3
+ABC RESULTS:               MUX cells:        6
+ABC RESULTS:              NAND cells:       24
+ABC RESULTS:               NOR cells:        3
+ABC RESULTS:               NOT cells:        2
+ABC RESULTS:                OR cells:        8
+ABC RESULTS:             ORNOT cells:       17
+ABC RESULTS:              XNOR cells:       11
+ABC RESULTS:               XOR cells:        3
+ABC RESULTS:        internal signals:      143
+ABC RESULTS:           input signals:       35
+ABC RESULTS:          output signals:       38
+Removing temp directory.
+Removing global temp directory.
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tt_um_gen1_digital_companion_tile.
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tt_um_gen1_digital_companion_tile'.
+Computing hashes of 158 cells of `\tt_um_gen1_digital_companion_tile'.
+Finding duplicate cells in `\tt_um_gen1_digital_companion_tile'.
+Removed a total of 0 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tt_um_gen1_digital_companion_tile..
+Removed 0 unused cells and 150 unused wires.
+<suppressed ~4 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `tt_um_gen1_digital_companion_tile'. Setting top module to tt_um_gen1_digital_companion_tile.
+
+2.24.1. Analyzing design hierarchy..
+Top module:  \tt_um_gen1_digital_companion_tile
+
+2.24.2. Analyzing design hierarchy..
+Top module:  \tt_um_gen1_digital_companion_tile
+Removed 0 unused modules.
+
+2.25. Printing statistics.
+
+=== tt_um_gen1_digital_companion_tile ===
+
+        +----------Local Count, excluding submodules.
+        |
+      142 wires
+      202 wire bits
+       24 public wires
+       84 public wire bits
+        8 ports
+       43 port bits
+      158 cells
+       14   $_ANDNOT_
+       44   $_AND_
+       25   $_DFFE_PN0P_
+        1   $_DFFE_PN1P_
+        6   $_MUX_
+       24   $_NAND_
+        3   $_NOR_
+        2   $_NOT_
+       17   $_ORNOT_
+        8   $_OR_
+       11   $_XNOR_
+        3   $_XOR_
+
+2.26. Executing CHECK pass (checking for obvious problems).
+Checking module tt_um_gen1_digital_companion_tile...
+Found and reported 0 problems.
+
+3. Printing statistics.
+
+=== tt_um_gen1_digital_companion_tile ===
+
+        +----------Local Count, excluding submodules.
+        |
+      142 wires
+      202 wire bits
+       24 public wires
+       84 public wire bits
+        8 ports
+       43 port bits
+      158 cells
+       14   $_ANDNOT_
+       44   $_AND_
+       25   $_DFFE_PN0P_
+        1   $_DFFE_PN1P_
+        6   $_MUX_
+       24   $_NAND_
+        3   $_NOR_
+        2   $_NOT_
+       17   $_ORNOT_
+        8   $_OR_
+       11   $_XNOR_
+        3   $_XOR_
+
+End of script. Logfile hash: 704d8845bf, time: 0.32s, user: 0.12s, system: 0.03s, MEM: 15.84 MB peak
+Yosys 0.64+197 (git sha1 4e35ed595, clang++ 18.1.8 -fPIC -O3)
+Time spent: 60% 1x abc (0 sec), 7% 22x opt_clean (0 sec), ...

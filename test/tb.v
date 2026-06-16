@@ -22,7 +22,7 @@ module tb ();
     wire VGND = 1'b0;
 `endif
 
-    tt_um_gen1_digital_companion_tile user_project (
+    tt_um_juan_gen1_digital_companion_tile user_project (
 `ifdef GL_TEST
         .VPWR(VPWR),
         .VGND(VGND),

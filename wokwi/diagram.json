@@ -1,0 +1,225 @@
+{
+  "version": 1,
+  "author": "Juan Fernandez",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-dip-switch-8",
+      "id": "sw1",
+      "top": -176.5,
+      "left": -94.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-clock-generator",
+      "id": "clock1",
+      "top": -355.2,
+      "left": -115.2,
+      "attrs": { "frequency": "1000000" }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw2",
+      "top": -370,
+      "left": -35.3,
+      "attrs": { "value": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -349,
+      "left": 19.2,
+      "attrs": { "color": "grey", "label": "Step", "bounce": "0", "key": "s" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -301,
+      "left": -134.4,
+      "attrs": { "color": "grey", "label": "RESET", "bounce": "0", "key": "r" }
+    },
+    {
+      "type": "board-tt-block-input",
+      "id": "ttin",
+      "top": -228.13,
+      "left": 4.8,
+      "attrs": { "verilogRole": "input" }
+    },
+    {
+      "type": "board-tt-block-output",
+      "id": "ttout",
+      "top": -208.93,
+      "left": 520,
+      "attrs": { "verilogRole": "output" }
+    },
+    {
+      "type": "chip-gen1-companion",
+      "id": "tile",
+      "top": -252,
+      "left": 240,
+      "attrs": {}
+    },
+    { "type": "wokwi-vcc", "id": "pwr1", "top": -229.64, "left": -115.2, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "pwr3", "top": -373.64, "left": 105.6, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "pwr4", "top": -300, "left": 208, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "pwr5", "top": -325.64, "left": -230.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -259.2, "left": -163.8, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 144, "left": 208, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -293.65,
+      "left": -211.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -100,
+      "left": -150,
+      "attrs": { "text": "ui[7:6]=cmd, ui[5:0]=data" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -288,
+      "left": 38.4,
+      "attrs": { "text": "Clock source / single step" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -344,
+      "left": 225,
+      "attrs": { "text": "Gen1 Digital Companion Tile" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 124,
+      "left": 228,
+      "attrs": { "text": "uio_out[3:0]=state, uio_out[7:4]=attempt" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "state0",
+      "top": 16,
+      "left": 242,
+      "attrs": { "color": "green", "label": "state0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "state1",
+      "top": 16,
+      "left": 280,
+      "attrs": { "color": "green", "label": "state1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "state2",
+      "top": 16,
+      "left": 318,
+      "attrs": { "color": "green", "label": "state2" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "state3",
+      "top": 16,
+      "left": 356,
+      "attrs": { "color": "green", "label": "state3" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "attempt0",
+      "top": 64,
+      "left": 242,
+      "attrs": { "color": "yellow", "label": "attempt0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "attempt1",
+      "top": 64,
+      "left": 280,
+      "attrs": { "color": "yellow", "label": "attempt1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "attempt2",
+      "top": 64,
+      "left": 318,
+      "attrs": { "color": "yellow", "label": "attempt2" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "attempt3",
+      "top": 64,
+      "left": 356,
+      "attrs": { "color": "yellow", "label": "attempt3" }
+    }
+  ],
+  "connections": [
+    [ "pwr1:VCC", "sw1:1a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:2a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:3a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:4a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:5a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:6a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:7a", "red", [ "v0" ] ],
+    [ "pwr1:VCC", "sw1:8a", "red", [ "v0" ] ],
+    [ "sw1:1b", "ttin:EXTIN0", "green", [ "h0" ] ],
+    [ "sw1:2b", "ttin:EXTIN1", "green", [ "h0" ] ],
+    [ "sw1:3b", "ttin:EXTIN2", "green", [ "h0" ] ],
+    [ "sw1:4b", "ttin:EXTIN3", "green", [ "h0" ] ],
+    [ "sw1:5b", "ttin:EXTIN4", "green", [ "h0" ] ],
+    [ "sw1:6b", "ttin:EXTIN5", "green", [ "h0" ] ],
+    [ "sw1:7b", "ttin:EXTIN6", "green", [ "h0" ] ],
+    [ "sw1:8b", "ttin:EXTIN7", "green", [ "h0" ] ],
+    [ "sw2:1", "clock1:CLK", "blue", [ "h-19.2", "v-57.6" ] ],
+    [ "sw2:2", "ttin:EXTCLK", "blue", [ "v0" ] ],
+    [ "btn1:1.l", "sw2:3", "blue", [ "h0" ] ],
+    [ "pwr3:VCC", "btn1:2.r", "red", [ "v0" ] ],
+    [ "btn2:2.l", "gnd1:GND", "black", [ "h0" ] ],
+    [ "ttin:EXTRST_N", "btn2:1.r", "orange", [ "h-38.4", "v-96" ] ],
+    [ "btn2:1.l", "r2:2", "green", [ "h0" ] ],
+    [ "pwr5:VCC", "r2:1", "red", [ "v0" ] ],
+    [ "pwr4:VCC", "tile:VCC", "red", [ "v0" ] ],
+    [ "gnd2:GND", "tile:GND", "black", [ "v0" ] ],
+    [ "pwr4:VCC", "tile:ENA", "red", [ "h0" ] ],
+    [ "ttin:CLK", "tile:CLK", "blue", [ "h0" ] ],
+    [ "ttin:RST_N", "tile:RST_N", "orange", [ "h0" ] ],
+    [ "ttin:IN0", "tile:UI0", "green", [ "h0" ] ],
+    [ "ttin:IN1", "tile:UI1", "green", [ "h0" ] ],
+    [ "ttin:IN2", "tile:UI2", "green", [ "h0" ] ],
+    [ "ttin:IN3", "tile:UI3", "green", [ "h0" ] ],
+    [ "ttin:IN4", "tile:UI4", "green", [ "h0" ] ],
+    [ "ttin:IN5", "tile:UI5", "green", [ "h0" ] ],
+    [ "ttin:IN6", "tile:UI6", "green", [ "h0" ] ],
+    [ "ttin:IN7", "tile:UI7", "green", [ "h0" ] ],
+    [ "tile:UO0", "ttout:OUT0", "violet", [ "h0" ] ],
+    [ "tile:UO1", "ttout:OUT1", "violet", [ "h0" ] ],
+    [ "tile:UO2", "ttout:OUT2", "violet", [ "h0" ] ],
+    [ "tile:UO3", "ttout:OUT3", "violet", [ "h0" ] ],
+    [ "tile:UO4", "ttout:OUT4", "violet", [ "h0" ] ],
+    [ "tile:UO5", "ttout:OUT5", "violet", [ "h0" ] ],
+    [ "tile:UO6", "ttout:OUT6", "violet", [ "h0" ] ],
+    [ "tile:UO7", "ttout:OUT7", "violet", [ "h0" ] ],
+    [ "tile:UIO0", "state0:A", "green", [ "v0" ] ],
+    [ "tile:UIO1", "state1:A", "green", [ "v0" ] ],
+    [ "tile:UIO2", "state2:A", "green", [ "v0" ] ],
+    [ "tile:UIO3", "state3:A", "green", [ "v0" ] ],
+    [ "tile:UIO4", "attempt0:A", "yellow", [ "v0" ] ],
+    [ "tile:UIO5", "attempt1:A", "yellow", [ "v0" ] ],
+    [ "tile:UIO6", "attempt2:A", "yellow", [ "v0" ] ],
+    [ "tile:UIO7", "attempt3:A", "yellow", [ "v0" ] ],
+    [ "state0:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "state1:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "state2:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "state3:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "attempt0:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "attempt1:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "attempt2:C", "gnd2:GND", "black", [ "v0" ] ],
+    [ "attempt3:C", "gnd2:GND", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

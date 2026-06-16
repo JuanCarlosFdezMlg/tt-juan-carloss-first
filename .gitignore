@@ -1,6 +1,8 @@
 .DS_Store
 .idea
 *.vcd
+*.fst
+*.fst.hier
 runs
 tt_submission
 src/user_config.json
@@ -9,3 +11,8 @@ test/sim_build
 test/__pycache__/
 test/results.xml
 test/gate_level_netlist.v
+workshop/artifacts/**/verilator_obj/
+workshop/artifacts/**/*.o
+workshop/artifacts/**/*.d
+workshop/artifacts/**/*.a
+workshop/artifacts/**/Vtb_*

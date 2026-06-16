@@ -1,0 +1,331 @@
+{
+  "experiment_id": "gen1_p65_tiny_tapeout_digital_companion",
+  "script": "experiments/clean/gen1_p65_tiny_tapeout_digital_companion.py",
+  "date": "2026-05-31",
+  "environment": "picasso-package-check-verilator-fixed",
+  "input_artifacts": {
+    "rtl": "tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v",
+    "testbench": "hardware/tb/tb_tt_um_gen1_digital_companion_tile.sv"
+  },
+  "python_smoke": {
+    "passed": true,
+    "up_verify": {
+      "target": 5,
+      "initial_current": 2,
+      "max_attempts": 4,
+      "trace": [
+        {
+          "cmd": 1,
+          "data": 5,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 2,
+          "data": 2,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 3,
+          "data": 17,
+          "uo": 65,
+          "uio": 1,
+          "attempt": 0,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 17,
+          "attempt": 1,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 33,
+          "attempt": 2,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 49,
+          "attempt": 3,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 163,
+          "uio": 50,
+          "attempt": 3,
+          "state": 2
+        }
+      ],
+      "terminal": {
+        "cmd": 0,
+        "data": 0,
+        "uo": 163,
+        "uio": 50,
+        "attempt": 3,
+        "state": 2
+      },
+      "passed": true
+    },
+    "down_verify": {
+      "target": 1,
+      "initial_current": 5,
+      "max_attempts": 4,
+      "trace": [
+        {
+          "cmd": 1,
+          "data": 1,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 2,
+          "data": 5,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 3,
+          "data": 17,
+          "uo": 65,
+          "uio": 1,
+          "attempt": 0,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 17,
+          "attempt": 1,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 33,
+          "attempt": 2,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 49,
+          "attempt": 3,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 69,
+          "uio": 65,
+          "attempt": 4,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 163,
+          "uio": 66,
+          "attempt": 4,
+          "state": 2
+        }
+      ],
+      "terminal": {
+        "cmd": 0,
+        "data": 0,
+        "uo": 163,
+        "uio": 66,
+        "attempt": 4,
+        "state": 2
+      },
+      "passed": true
+    },
+    "timeout_fault": {
+      "target": 8,
+      "initial_current": 0,
+      "max_attempts": 3,
+      "trace": [
+        {
+          "cmd": 1,
+          "data": 8,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 2,
+          "data": 0,
+          "uo": 129,
+          "uio": 0,
+          "attempt": 0,
+          "state": 0
+        },
+        {
+          "cmd": 3,
+          "data": 13,
+          "uo": 65,
+          "uio": 1,
+          "attempt": 0,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 17,
+          "attempt": 1,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 33,
+          "attempt": 2,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 73,
+          "uio": 49,
+          "attempt": 3,
+          "state": 1
+        },
+        {
+          "cmd": 0,
+          "data": 0,
+          "uo": 176,
+          "uio": 51,
+          "attempt": 3,
+          "state": 3
+        }
+      ],
+      "terminal": {
+        "cmd": 0,
+        "data": 0,
+        "uo": 176,
+        "uio": 51,
+        "attempt": 3,
+        "state": 3
+      },
+      "passed": true
+    },
+    "load_public_state_constant": true,
+    "raw_payload_outputs": 0
+  },
+  "external_checks": {
+    "tools": {
+      "verilator": "/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/bin/verilator",
+      "yosys": "/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/bin/yosys"
+    },
+    "lint": {
+      "passed": true,
+      "logs": {
+        "stdout": "artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/verilator_lint.stdout.log",
+        "stderr": "artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/verilator_lint.stderr.log"
+      },
+      "result": {
+        "command": [
+          "/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/bin/verilator",
+          "--lint-only",
+          "--timing",
+          "tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v",
+          "hardware/tb/tb_tt_um_gen1_digital_companion_tile.sv"
+        ],
+        "returncode": 0,
+        "stdout_tail": "- V e r i l a t i o n   R e p o r t: Verilator 5.049 devel rev v5.048-46-g7c5069c7d (mod)\n- Verilator: Built from 0.071 MB sources in 3 modules, into 0.120 MB in 3 C++ files needing 0.000 MB\n- Verilator: Walltime 0.036 s (elab=0.003, cvt=0.014, bld=0.000); cpu 0.034 s on 1 threads; allocated 21.578 MB\n",
+        "stderr_tail": ""
+      }
+    },
+    "simulation": {
+      "passed": true,
+      "build": {
+        "command": [
+          "/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/bin/verilator",
+          "--binary",
+          "--timing",
+          "--top-module",
+          "tb_tt_um_gen1_digital_companion_tile",
+          "-Mdir",
+          "/mnt2/fscratch/users/tep_967_uma_colab/jfernandez/tt_workshop_pkg_check_20260531/artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/verilator_obj",
+          "tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v",
+          "hardware/tb/tb_tt_um_gen1_digital_companion_tile.sv"
+        ],
+        "returncode": 0,
+        "stdout_tail": "make: Entering directory '/mnt2/fscratch/users/tep_967_uma_colab/jfernandez/tt_workshop_pkg_check_20260531/artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/verilator_obj'\ng++ -Os  -I.  -MMD -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/verilated.cpp\ng++ -Os  -I.  -MMD -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/verilated_timing.cpp\ng++ -Os  -I.  -MMD -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/verilated_threads.cpp\npython3 /mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtb_tt_um_gen1_digital_companion_tile.cpp Vtb_tt_um_gen1_digital_companion_tile___024root__0.cpp Vtb_tt_um_gen1_digital_companion_tile__main.cpp Vtb_tt_um_gen1_digital_companion_tile___024root__Slow.cpp Vtb_tt_um_gen1_digital_companion_tile___024root__0__Slow.cpp Vtb_tt_um_gen1_digital_companion_tile__Syms__Slow.cpp > Vtb_tt_um_gen1_digital_companion_tile__ALL.cpp\ng++ -Os  -I.  -MMD -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include -I/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -DVM_TRACE_SAIF=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o Vtb_tt_um_gen1_digital_companion_tile__ALL.o Vtb_tt_um_gen1_digital_companion_tile__ALL.cpp\ng++    verilated.o verilated_timing.o verilated_threads.o Vtb_tt_um_gen1_digital_companion_tile__ALL.a    -pthread -lpthread -latomic   -o Vtb_tt_um_gen1_digital_companion_tile\nrm Vtb_tt_um_gen1_digital_companion_tile__ALL.verilator_deplist.tmp\nmake: Leaving directory '/mnt2/fscratch/users/tep_967_uma_colab/jfernandez/tt_workshop_pkg_check_20260531/artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/verilator_obj'\n- V e r i l a t i o n   R e p o r t: Verilator 5.049 devel rev v5.048-46-g7c5069c7d (mod)\n- Verilator: Built from 0.071 MB sources in 3 modules, into 0.171 MB in 6 C++ files needing 0.001 MB\n- Verilator: Walltime 15.187 s (elab=0.003, cvt=0.273, bld=14.429); cpu 0.054 s on 1 threads; allocated 21.852 MB\n",
+        "stderr_tail": ""
+      },
+      "run": {
+        "command": [
+          "/mnt2/fscratch/users/tep_967_uma_colab/jfernandez/tt_workshop_pkg_check_20260531/artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/verilator_obj/Vtb_tt_um_gen1_digital_companion_tile"
+        ],
+        "returncode": 0,
+        "stdout_tail": "P65_TRACE phase=0 idx=0 cycle=2 cmd=1 data=0x05 uo=0x81 uio=0x00 ready=1 busy=0 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=0\nP65_TRACE phase=0 idx=1 cycle=3 cmd=2 data=0x02 uo=0x81 uio=0x00 ready=1 busy=0 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=0\nP65_TRACE phase=0 idx=2 cycle=4 cmd=3 data=0x11 uo=0x41 uio=0x01 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=1\nP65_TRACE phase=0 idx=3 cycle=5 cmd=0 data=0x00 uo=0x49 uio=0x11 ready=0 busy=1 done=0 fault=0 pulse_up=1 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=1 state=1\nP65_TRACE phase=0 idx=4 cycle=6 cmd=0 data=0x00 uo=0x49 uio=0x21 ready=0 busy=1 done=0 fault=0 pulse_up=1 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=2 state=1\nP65_TRACE phase=0 idx=5 cycle=7 cmd=0 data=0x00 uo=0x49 uio=0x31 ready=0 busy=1 done=0 fault=0 pulse_up=1 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=3 state=1\nP65_TRACE phase=0 idx=6 cycle=8 cmd=0 data=0x00 uo=0xa3 uio=0x32 ready=1 busy=0 done=1 fault=0 pulse_up=0 pulse_down=0 verify_ok=1 privacy_ok=1 attempt=3 state=2\nP65_TRACE phase=1 idx=0 cycle=2 cmd=1 data=0x01 uo=0x81 uio=0x00 ready=1 busy=0 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=0\nP65_TRACE phase=1 idx=1 cycle=3 cmd=2 data=0x05 uo=0x81 uio=0x00 ready=1 busy=0 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=0\nP65_TRACE phase=1 idx=2 cycle=4 cmd=3 data=0x11 uo=0x41 uio=0x01 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=1\nP65_TRACE phase=1 idx=3 cycle=5 cmd=0 data=0x00 uo=0x45 uio=0x11 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=1 verify_ok=0 privacy_ok=1 attempt=1 state=1\nP65_TRACE phase=1 idx=4 cycle=6 cmd=0 data=0x00 uo=0x45 uio=0x21 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=1 verify_ok=0 privacy_ok=1 attempt=2 state=1\nP65_TRACE phase=1 idx=5 cycle=7 cmd=0 data=0x00 uo=0x45 uio=0x31 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=1 verify_ok=0 privacy_ok=1 attempt=3 state=1\nP65_TRACE phase=1 idx=6 cycle=8 cmd=0 data=0x00 uo=0x45 uio=0x41 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=1 verify_ok=0 privacy_ok=1 attempt=4 state=1\nP65_TRACE phase=1 idx=7 cycle=9 cmd=0 data=0x00 uo=0xa3 uio=0x42 ready=1 busy=0 done=1 fault=0 pulse_up=0 pulse_down=0 verify_ok=1 privacy_ok=1 attempt=4 state=2\nP65_TRACE phase=2 idx=0 cycle=2 cmd=1 data=0x08 uo=0x81 uio=0x00 ready=1 busy=0 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=0\nP65_TRACE phase=2 idx=1 cycle=3 cmd=2 data=0x00 uo=0x81 uio=0x00 ready=1 busy=0 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=0\nP65_TRACE phase=2 idx=2 cycle=4 cmd=3 data=0x0d uo=0x41 uio=0x01 ready=0 busy=1 done=0 fault=0 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=0 state=1\nP65_TRACE phase=2 idx=3 cycle=5 cmd=0 data=0x00 uo=0x49 uio=0x11 ready=0 busy=1 done=0 fault=0 pulse_up=1 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=1 state=1\nP65_TRACE phase=2 idx=4 cycle=6 cmd=0 data=0x00 uo=0x49 uio=0x21 ready=0 busy=1 done=0 fault=0 pulse_up=1 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=2 state=1\nP65_TRACE phase=2 idx=5 cycle=7 cmd=0 data=0x00 uo=0x49 uio=0x31 ready=0 busy=1 done=0 fault=0 pulse_up=1 pulse_down=0 verify_ok=0 privacy_ok=1 attempt=3 state=1\nP65_TRACE phase=2 idx=6 cycle=8 cmd=0 data=0x00 uo=0xb0 uio=0x33 ready=1 busy=0 done=1 fault=1 pulse_up=0 pulse_down=0 verify_ok=0 privacy_ok=0 attempt=3 state=3\nP65_SUMMARY up_verify=1 down_verify=1 timeout_fault=1 raw_payload_outputs=0\n- hardware/tb/tb_tt_um_gen1_digital_companion_tile.sv:160: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.049 devel\n- Verilator: $finish at 316ns; walltime 0.000 s; speed 1.054 ms/s\n- Verilator: cpu 0.000 s on 1 threads; allocated 6 MB\n",
+        "stderr_tail": ""
+      },
+      "parsed": {
+        "summary": {
+          "up_verify": 1,
+          "down_verify": 1,
+          "timeout_fault": 1,
+          "raw_payload_outputs": 0
+        }
+      }
+    },
+    "synthesis": {
+      "passed": true,
+      "logs": {
+        "stdout": "artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/yosys_synth.stdout.log",
+        "stderr": "artifacts/picasso/tiny_tapeout_package_p65_verilator_fixed/yosys_synth.stderr.log"
+      },
+      "result": {
+        "command": [
+          "/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/bin/yosys",
+          "-p",
+          "read_verilog tiny_tapeout/tt_um_gen1_digital_companion_tile/src/project.v; synth -top tt_um_gen1_digital_companion_tile; stat"
+        ],
+        "returncode": 0,
+        "stdout_tail": "hashes of 62 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\nRemoved a total of 0 cells.\n\n2.19.14. Executing OPT_SHARE pass.\n\n2.19.15. Executing OPT_DFF pass (perform DFF optimizations).\n\n2.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).\nFinding unused cells or wires in module \\tt_um_gen1_digital_companion_tile..\nRemoved 0 unused cells and 3 unused wires.\n<suppressed ~1 debug messages>\n\n2.19.17. Executing OPT_EXPR pass (perform const folding).\nOptimizing module tt_um_gen1_digital_companion_tile.\n<suppressed ~1 debug messages>\n\n2.19.18. Rerunning OPT passes. (Maybe there is more to do..)\n\n2.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).\nRunning muxtree optimizer on module \\tt_um_gen1_digital_companion_tile..\n  Creating internal representation of mux trees.\n  Evaluating internal representation of mux trees.\n  Analyzing evaluation results.\nRemoved 0 multiplexer ports.\n<suppressed ~23 debug messages>\n\n2.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).\n  Optimizing cells in module \\tt_um_gen1_digital_companion_tile.\nPerformed a total of 0 changes.\n\n2.19.21. Executing OPT_MERGE pass (detect identical cells).\nFinding identical cells in module `\\tt_um_gen1_digital_companion_tile'.\nComputing hashes of 62 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\nComputing hashes of 61 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\n<suppressed ~3 debug messages>\nRemoved a total of 1 cells.\n\n2.19.22. Executing OPT_SHARE pass.\n\n2.19.23. Executing OPT_DFF pass (perform DFF optimizations).\n\n2.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).\nFinding unused cells or wires in module \\tt_um_gen1_digital_companion_tile..\nRemoved 0 unused cells and 1 unused wires.\n<suppressed ~1 debug messages>\n\n2.19.25. Executing OPT_EXPR pass (perform const folding).\nOptimizing module tt_um_gen1_digital_companion_tile.\n\n2.19.26. Rerunning OPT passes. (Maybe there is more to do..)\n\n2.19.27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).\nRunning muxtree optimizer on module \\tt_um_gen1_digital_companion_tile..\n  Creating internal representation of mux trees.\n  Evaluating internal representation of mux trees.\n  Analyzing evaluation results.\nRemoved 0 multiplexer ports.\n<suppressed ~23 debug messages>\n\n2.19.28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).\n  Optimizing cells in module \\tt_um_gen1_digital_companion_tile.\nPerformed a total of 0 changes.\n\n2.19.29. Executing OPT_MERGE pass (detect identical cells).\nFinding identical cells in module `\\tt_um_gen1_digital_companion_tile'.\nComputing hashes of 61 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\nRemoved a total of 0 cells.\n\n2.19.30. Executing OPT_SHARE pass.\n\n2.19.31. Executing OPT_DFF pass (perform DFF optimizations).\n\n2.19.32. Executing OPT_CLEAN pass (remove unused cells and wires).\nFinding unused cells or wires in module \\tt_um_gen1_digital_companion_tile..\n\n2.19.33. Executing OPT_EXPR pass (perform const folding).\nOptimizing module tt_um_gen1_digital_companion_tile.\n\n2.19.34. Finished fast OPT passes. (There is nothing left to do.)\n\n2.20. Executing TECHMAP pass (map to technology primitives).\n\n2.20.1. Executing Verilog-2005 frontend: /mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/lib/../share/yosys/techmap.v\nParsing Verilog input from `/mnt/home/users/tep_967_uma_colab/jfernandez/.tools/oss-cad-suite-20260508/lib/../share/yosys/techmap.v' to AST representation.\nGenerating RTLIL representation for module `\\_90_simplemap_bool_ops'.\nGenerating RTLIL representation for module `\\_90_simplemap_reduce_ops'.\nGenerating RTLIL representation for module `\\_90_simplemap_logic_ops'.\nGenerating RTLIL representation for module `\\_90_simplemap_compare_ops'.\nGenerating RTLIL representation for module `\\_90_simplemap_various'.\nGenerating RTLIL representation for module `\\_90_simplemap_registers'.\nGenerating RTLIL representation for module `\\_90_shift_ops_shr_shl_sshl_sshr'.\nGenerating RTLIL representation for module `\\_90_shift_shiftx'.\nGenerating RTLIL representation for module `\\_90_fa'.\nGenerating RTLIL representation for module `\\_90_lcu_brent_kung'.\nGenerating RTLIL representation for module `\\_90_alu'.\nGenerating RTLIL representation for module `\\_90_macc'.\nGenerating RTLIL representation for module `\\_90_alumacc'.\nGenerating RTLIL representation for module `$__div_mod_u'.\nGenerating RTLIL representation for module `$__div_mod_trunc'.\nGenerating RTLIL representation for module `\\_90_div'.\nGenerating RTLIL representation for module `\\_90_mod'.\nGenerating RTLIL representation for module `$__div_mod_floor'.\nGenerating RTLIL representation for module `\\_90_divfloor'.\nGenerating RTLIL representation for module `\\_90_modfloor'.\nGenerating RTLIL representation for module `\\_90_pow'.\nGenerating RTLIL representation for module `\\_90_demux'.\nGenerating RTLIL representation for module `\\_90_lut'.\nGenerating RTLIL representation for module `$connect'.\nGenerating RTLIL representation for module `$input_port'.\nSuccessfully finished Verilog frontend.\n\n2.20.2. Continuing TECHMAP pass.\nUsing template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\\_90_alu for cells of type $alu.\nUsing template $paramod$00298f3f8094950cb9a5ff2fda48d0d8bde8806c\\_90_alu for cells of type $alu.\nUsing extmapper simplemap for cells of type $reduce_and.\nUsing extmapper simplemap for cells of type $reduce_or.\nUsing extmapper simplemap for cells of type $not.\nUsing extmapper simplemap for cells of type $or.\nUsing template $paramod$740b056ede97228d3eae64ea2fdc81f0a33e0fe7\\_90_alu for cells of type $alu.\nUsing extmapper simplemap for cells of type $adffe.\nUsing extmapper simplemap for cells of type $ne.\nUsing extmapper simplemap for cells of type $reduce_bool.\nUsing extmapper simplemap for cells of type $mux.\nUsing extmapper simplemap for cells of type $logic_not.\nUsing extmapper simplemap for cells of type $and.\nUsing extmapper simplemap for cells of type $eq.\nUsing extmapper simplemap for cells of type $xor.\nUsing template $paramod\\_90_fa\\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.\nUsing template $paramod\\_90_lcu_brent_kung\\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.\nUsing extmapper simplemap for cells of type $pos.\nUsing template $paramod\\_90_fa\\WIDTH=32'00000000000000000000000000000110 for cells of type $fa.\nUsing template $paramod\\_90_lcu_brent_kung\\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.\nNo more expansions possible.\n<suppressed ~547 debug messages>\n\n2.21. Executing OPT pass (performing simple optimizations).\n\n2.21.1. Executing OPT_EXPR pass (perform const folding).\nOptimizing module tt_um_gen1_digital_companion_tile.\n<suppressed ~135 debug messages>\n\n2.21.2. Executing OPT_MERGE pass (detect identical cells).\nFinding identical cells in module `\\tt_um_gen1_digital_companion_tile'.\nComputing hashes of 246 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\nComputing hashes of 233 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\n<suppressed ~39 debug messages>\nRemoved a total of 13 cells.\n\n2.21.3. Executing OPT_DFF pass (perform DFF optimizations).\n\n2.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).\nFinding unused cells or wires in module \\tt_um_gen1_digital_companion_tile..\nRemoved 28 unused cells and 212 unused wires.\n<suppressed ~29 debug messages>\n\n2.21.5. Finished fast OPT passes.\n\n2.22. Executing ABC pass (technology mapping using ABC).\n\n2.22.1. Extracting gate netlist of module `\\tt_um_gen1_digital_companion_tile' to `<abc-temp-dir>/input.blif'..\n\n2.22.1.1. Executed ABC.\nExtracted 179 gates and 216 wires to a netlist network with 35 inputs and 38 outputs.\nRunning ABC script: <abc-temp-dir>/abc.script\nABC: UC Berkeley, ABC 1.01 (compiled May  8 2026 04:13:39)\nABC: abc 01> empty\nABC: abc 01> source <abc-temp-dir>/abc.script\nABC: + read_blif <abc-temp-dir>/input.blif \nABC: + read_library <abc-temp-dir>/stdcells.genlib \nABC: + strash \nABC: + &get -n \nABC: + &fraig -x \nABC: + &put \nABC: + scorr \nABC: Warning: The network is combinational (run \"fraig\" or \"fraig_sweep\").\nABC: + dc2 \nABC: + dretime \nABC: + strash \nABC: + &get -n \nABC: + &dch -f \nABC: + &nf \nABC: + &put \nABC: + write_blif <abc-temp-dir>/output.blif \nABC: \nABC: YOSYS_ABC_DONE \n\n2.22.1.2. Re-integrating ABC results.\nABC RESULTS:               AND cells:       44\nABC RESULTS:            ANDNOT cells:       14\nABC RESULTS:               BUF cells:        3\nABC RESULTS:               MUX cells:        6\nABC RESULTS:              NAND cells:       24\nABC RESULTS:               NOR cells:        3\nABC RESULTS:               NOT cells:        2\nABC RESULTS:                OR cells:        8\nABC RESULTS:             ORNOT cells:       17\nABC RESULTS:              XNOR cells:       11\nABC RESULTS:               XOR cells:        3\nABC RESULTS:        internal signals:      143\nABC RESULTS:           input signals:       35\nABC RESULTS:          output signals:       38\nRemoving temp directory.\nRemoving global temp directory.\n\n2.23. Executing OPT pass (performing simple optimizations).\n\n2.23.1. Executing OPT_EXPR pass (perform const folding).\nOptimizing module tt_um_gen1_digital_companion_tile.\n\n2.23.2. Executing OPT_MERGE pass (detect identical cells).\nFinding identical cells in module `\\tt_um_gen1_digital_companion_tile'.\nComputing hashes of 158 cells of `\\tt_um_gen1_digital_companion_tile'.\nFinding duplicate cells in `\\tt_um_gen1_digital_companion_tile'.\nRemoved a total of 0 cells.\n\n2.23.3. Executing OPT_DFF pass (perform DFF optimizations).\n\n2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).\nFinding unused cells or wires in module \\tt_um_gen1_digital_companion_tile..\nRemoved 0 unused cells and 150 unused wires.\n<suppressed ~4 debug messages>\n\n2.23.5. Finished fast OPT passes.\n\n2.24. Executing HIERARCHY pass (managing design hierarchy).\nAttribute `top' found on module `tt_um_gen1_digital_companion_tile'. Setting top module to tt_um_gen1_digital_companion_tile.\n\n2.24.1. Analyzing design hierarchy..\nTop module:  \\tt_um_gen1_digital_companion_tile\n\n2.24.2. Analyzing design hierarchy..\nTop module:  \\tt_um_gen1_digital_companion_tile\nRemoved 0 unused modules.\n\n2.25. Printing statistics.\n\n=== tt_um_gen1_digital_companion_tile ===\n\n        +----------Local Count, excluding submodules.\n        | \n      142 wires\n      202 wire bits\n       24 public wires\n       84 public wire bits\n        8 ports\n       43 port bits\n      158 cells\n       14   $_ANDNOT_\n       44   $_AND_\n       25   $_DFFE_PN0P_\n        1   $_DFFE_PN1P_\n        6   $_MUX_\n       24   $_NAND_\n        3   $_NOR_\n        2   $_NOT_\n       17   $_ORNOT_\n        8   $_OR_\n       11   $_XNOR_\n        3   $_XOR_\n\n2.26. Executing CHECK pass (checking for obvious problems).\nChecking module tt_um_gen1_digital_companion_tile...\nFound and reported 0 problems.\n\n3. Printing statistics.\n\n=== tt_um_gen1_digital_companion_tile ===\n\n        +----------Local Count, excluding submodules.\n        | \n      142 wires\n      202 wire bits\n       24 public wires\n       84 public wire bits\n        8 ports\n       43 port bits\n      158 cells\n       14   $_ANDNOT_\n       44   $_AND_\n       25   $_DFFE_PN0P_\n        1   $_DFFE_PN1P_\n        6   $_MUX_\n       24   $_NAND_\n        3   $_NOR_\n        2   $_NOT_\n       17   $_ORNOT_\n        8   $_OR_\n       11   $_XNOR_\n        3   $_XOR_\n\nEnd of script. Logfile hash: 704d8845bf, time: 0.32s, user: 0.12s, system: 0.03s, MEM: 15.84 MB peak\nYosys 0.64+197 (git sha1 4e35ed595, clang++ 18.1.8 -fPIC -O3)\nTime spent: 60% 1x abc (0 sec), 7% 22x opt_clean (0 sec), ...\n",
+        "stderr_tail": ""
+      },
+      "stats": {
+        "cell_count": 158
+      }
+    }
+  },
+  "decision": {
+    "status": "p65_tiny_tapeout_digital_companion_ready",
+    "promote_p65_tiny_tapeout_digital_companion": true,
+    "cell_count": 158,
+    "cell_budget": 300,
+    "workshop_candidate": true,
+    "full_memristive_core_supported": false,
+    "analog_or_1t1r_behavior_supported": false,
+    "asic_signoff_or_tapeout_ready": false,
+    "raw_payload_outputs_observed": 0,
+    "failures": []
+  }
+}

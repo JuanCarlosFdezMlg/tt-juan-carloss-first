@@ -6,7 +6,7 @@
 `default_nettype none
 `timescale 1ns/1ps
 
-module tt_um_gen1_digital_companion_tile (
+module tt_um_juan_gen1_digital_companion_tile (
     input  wire [7:0] ui_in,
     output wire [7:0] uo_out,
     input  wire [7:0] uio_in,
@@ -80,7 +80,15 @@ module tt_um_gen1_digital_companion_tile (
             pulse_down_q <= 1'b0;
             verify_ok_q <= 1'b0;
 
-            if (busy_q) begin
+            if (cmd == CMD_CONTROL && control_clear) begin
+                busy_q <= 1'b0;
+                done_q <= 1'b0;
+                fault_q <= 1'b0;
+                pulse_up_q <= 1'b0;
+                pulse_down_q <= 1'b0;
+                verify_ok_q <= 1'b0;
+                attempt_q <= 4'd0;
+            end else if (busy_q) begin
                 if (current_q == target_q) begin
                     busy_q <= 1'b0;
                     done_q <= 1'b1;
@@ -110,15 +118,7 @@ module tt_um_gen1_digital_companion_tile (
                         current_q <= data;
                     end
                     CMD_CONTROL: begin
-                        if (control_clear) begin
-                            busy_q <= 1'b0;
-                            done_q <= 1'b0;
-                            fault_q <= 1'b0;
-                            pulse_up_q <= 1'b0;
-                            pulse_down_q <= 1'b0;
-                            verify_ok_q <= 1'b0;
-                            attempt_q <= 4'd0;
-                        end else if (control_start) begin
+                        if (control_start) begin
                             busy_q <= 1'b1;
                             done_q <= 1'b0;
                             fault_q <= 1'b0;

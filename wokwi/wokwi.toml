@@ -1,0 +1,6 @@
+[wokwi]
+version = 1
+
+[[chip]]
+name = "gen1-companion"
+binary = "gen1-companion.chip.wasm"
